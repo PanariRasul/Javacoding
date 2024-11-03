@@ -3,37 +3,44 @@ import java.util.*;
 
 class Calculator {
 
-    public static void main(String arg[]) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter First Number");
+
+        System.out.println("Enter First Number: ");
         int num1 = sc.nextInt();
-        System.out.println("Enter Second Number");
+
+        System.out.println("Enter Second Number: ");
         int num2 = sc.nextInt();
-        System.out.println("Choose Operater: +, -, *, /");
+
+        System.out.println("Choose Operater (+, -, *, /)");
         char operater = sc.next().charAt(0);
 
-        int result = 0;
+        double result = 0;
 
         switch (operater) {
             case '+':
                 result = num1 + num2;
                 break;
+
             case '-':
                 result = num1 - num2;
                 break;
+
             case '*':
                 result = num1 * num2;
                 break;
+
             case '/':
                 if (num2 != 0) {
-                    result = num1 / num2;
+                    result = (double) num1 / num2;
+                    break;
                 } else {
-                    System.out.println("Division by zero is not allowed.");
-                    sc.close();
+                    System.out.println("Infinite");
                 }
-                break;
+
             default:
-                System.out.println("Enter Valid Number");
+                System.out.println("Invalid Entery!");
+                sc.close();
         }
 
         System.out.println("Result: " + result);
